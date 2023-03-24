@@ -13,9 +13,10 @@ namespace Kwetter_User.Models
             public string Address { get; set; }
             public string Paswword { get; set; }
             public string Email { get; set; }
+        public string IDK { get; set; }
 
 
-            public User()
+        public User()
             {
                 Username = "Yannick";
             }
