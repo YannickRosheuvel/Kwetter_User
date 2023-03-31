@@ -33,4 +33,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: yourdockerhubusername/yourimagename:latest
+        tags: yourdockerhubusername/kwetteruser:latest
