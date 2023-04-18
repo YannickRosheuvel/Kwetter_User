@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./Kwetter_User/Kwetter_User.csproj
     - name: Build
       run: dotnet build ./Kwetter_User/Kwetter_User.csproj --no-restore
     - name: Test
