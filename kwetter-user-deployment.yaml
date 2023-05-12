@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert -f docker-compose.yml
+    kompose.version: 1.28.0 (c4137012e)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: kwetter-user
+  name: kwetter-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: kwetter-user
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert -f docker-compose.yml
+        kompose.version: 1.28.0 (c4137012e)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/kwetter-user-default: "true"
+        io.kompose.service: kwetter-user
+    spec:
+      containers:
+        - image: ${DOCKER_REGISTRY-}kwetteruser
+          name: kwetter-user
+          resources: {}
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,49 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kwetter-user-deployment
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: kwetter-user
+  template:
+    metadata:
+      labels:
+        app: kwetter-user
+    spec:
+      containers:
+      - name: kwetter-user
+        image: yannickrosheuvel/kwetteruser
+        ports:
+        - containerPort: 80
+        env:
+        - name: MYSQL_HOST
+          value: mysql
+        - name: MYSQL_USER
+          value: kwetter
+        - name: MYSQL_PASSWORD
+          value: password
+        - name: MYSQL_DATABASE
+          value: kwetter
+      restartPolicy: Always
+
+
+#      apiVersion: autoscaling/v2beta2
+#kind: HorizontalPodAutoscaler
+#metadata:
+#  name: kwetter-user-hpa
+#spec:
+#  scaleTargetRef:
+#    apiVersion: apps/v1
+#    kind: Deployment
+#    name: kwetter-user-deployment
+#  minReplicas: 1
+#  maxReplicas: 10
+#  metrics:
+#  - type: Resource
+#    resource:
+#      name: cpu
+#      target:
+#        type: Utilization
+#        averageUtilization: 50

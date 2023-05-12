@@ -16,3 +16,4 @@ services:
       MYSQL_DATABASE: kwetter
       MYSQL_USER: kwetter
       MYSQL_PASSWORD: password
+
