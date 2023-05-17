@@ -53,6 +53,8 @@ namespace ApacheKafkaProducerDemo.Controllers
                 Console.WriteLine($"Error occured: {ex.Message}");
             }
 
+
+
             return await Task.FromResult(false);
         }
     }
