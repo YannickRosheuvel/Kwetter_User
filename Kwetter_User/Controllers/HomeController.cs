@@ -16,6 +16,7 @@ namespace ApacheKafkaProducerDemo.Controllers
         bootstrapServers = "host.docker.internal:29092";
         private readonly string topic = "test";
 
+
         [HttpPost]
         public async Task<IActionResult>
         Post([FromBody] OrderRequest orderRequest)

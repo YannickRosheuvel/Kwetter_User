@@ -22,11 +22,11 @@ namespace Data_Stream
         {
 
 
-            var topic = "my-stream";
+            var topic = "your_topic_name";
 
             var conf = new ConsumerConfig
             {
-                BootstrapServers = "host.docker.internal:29092",
+                BootstrapServers = "pkc-ewzgj.europe-west4.gcp.confluent.cloud:9092",
                 GroupId = Environment.MachineName,
                 AutoOffsetReset = AutoOffsetReset.Earliest
             };

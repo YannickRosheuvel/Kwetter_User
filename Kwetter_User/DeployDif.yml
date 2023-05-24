@@ -1,0 +1,29 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kwetter-user-deployment-better
+  labels:
+    app: kwetter-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: kwetter-user-deployment-better
+  template:
+    metadata:
+      labels:
+        app: kwetter-user
+        service: kwetter-user-deployment-better
+    spec:
+      containers:
+        - name: kwetter-user-deployment-better
+          image: yannickrosheuvel/kwetteruser:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:80
+            - name: KwetterBaseAddress
+              value: http://kwetter

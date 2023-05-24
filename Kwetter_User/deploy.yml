@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: kwetter-user
-        image: yannickrosheuvel/kwetteruser
+        image: yannickrosheuvel/kwetteruser:latest
         ports:
         - containerPort: 80
         env:
@@ -27,23 +27,3 @@ spec:
         - name: MYSQL_DATABASE
           value: kwetter
       restartPolicy: Always
-
-
-#      apiVersion: autoscaling/v2beta2
-#kind: HorizontalPodAutoscaler
-#metadata:
-#  name: kwetter-user-hpa
-#spec:
-#  scaleTargetRef:
-#    apiVersion: apps/v1
-#    kind: Deployment
-#    name: kwetter-user-deployment
-#  minReplicas: 1
-#  maxReplicas: 10
-#  metrics:
-#  - type: Resource
-#    resource:
-#      name: cpu
-#      target:
-#        type: Utilization
-#        averageUtilization: 50

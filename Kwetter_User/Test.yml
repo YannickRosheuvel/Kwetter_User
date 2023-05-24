@@ -1,0 +1,22 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kwetteruser
+  labels:
+    app: kwetteruser
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kwetteruser
+  template:
+    metadata:
+      labels:
+        app: kwetteruser
+    spec:
+      containers:
+        - name: kwetteruser
+          image: yannickrosheuvel/kwetteruser:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
