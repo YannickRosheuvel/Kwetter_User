@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 using Kwetter_User;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+
 
 namespace TodoApi.Controllers
 {
@@ -37,4 +34,10 @@ namespace TodoApi.Controllers
             .ToArray();
         }
     }
+
+    // New line added below
+    // public class MyNewClass
+    // {
+    //     // Class code goes here
+    // }
 }
